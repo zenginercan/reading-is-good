@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "5c7064a3-1bf2-4b76-9e3d-a727db32bc31",
+		"name": "ReadingIsGood",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE_CUSTOMER",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\":\"Albert\",\n    \"lastName\":\"Einstein\",\n    \"email\":\"a@a.com\",\n    \"address\":\"New York\",\n    \"phoneNumber\":5351234567,\n    \"password\":\"xyz123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE_BOOK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Kuyucaklı Yusuf\",\n    \"author\":\"Sabahattin Ali\",\n    \"isbn\":\"978-090-87-65\",\n    \"price\":20,\n    \"status\":1,\n    \"stockCount\":100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/book/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE_BOOK_STOCK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"61119f7f9184912a9d1ca406\",\n    \"stockCount\":120\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/book/updatestock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"updatestock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE_ORDER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"İlk Sipariş\",\n    \"itemList\":[\n        {\n            \"bookId\":\"61118d6e56c64122e844dcc4\",\n            \"orderCount\":5\n        }\n    ],\n    \"owner\":{\n            \"id\": \"61119d029184912a9d1ca403\",\n            \"firstName\": \"Ada\",\n            \"lastName\": \"Lovelace\",\n            \"birthDate\": \"2021-08-09T21:24:17.875+00:00\",\n            \"email\": \"d@d.com\",\n            \"address\": \"New York\",\n            \"phoneNumber\": 5353333344,\n            \"password\": \"xyz12\",\n            \"status\": 1,\n            \"creationDate\": \"2021-08-09T21:24:17.875+00:00\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ORDER_BY_ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order?id=61114f558dc74618a7f27b60",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "61114f558dc74618a7f27b60"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ORDERS_BY_DATE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startDate\":\"2021-08-01 12:00:00.000\",\n    \"endDate\":\"2021-08-11 19:00:00.000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/getordersbydate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"getordersbydate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ORDERS_OF_CUSTOMER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\":5353333344,\n    \"pageNumber\":0,\n    \"pageSize\":5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer/getorders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"getorders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_MONTHLY_STATISTICS",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/statistics/monthly?phoneNumber=5353333344",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statistics",
+						"monthly"
+					],
+					"query": [
+						{
+							"key": "phoneNumber",
+							"value": "5353333344"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER_USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER_LOGIN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\":\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_BOOKS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/book/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_CUSTOMERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
