@@ -1,4 +1,4 @@
-Getir Reading Is Good Application Guide
+Reading Is Good Application Guide
 ----------------------------------------------
 
 Reading Is Good is an application written for ReadingIsGood online book retail firm.
